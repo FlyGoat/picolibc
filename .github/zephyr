@@ -12,4 +12,12 @@ for dir in "$ZEPHYR_SDK_INSTALL_DIR"/* "$ZEPHYR_SDK_INSTALL_DIR"/qemu*; do
     fi
 done
 
+# Override the default qemu-system-mips
+# https://github.com/zephyrproject-rtos/sdk-ng/issues/849
+bindir="$here/.local/bin"
+mkdir -p "$bindir"
+ln -sf /usr/bin/qemu-system-mips "$bindir/qemu-system-mips"
+ln -sf /usr/bin/qemu-system-mipsel "$bindir/qemu-system-mipsel"
+PATH="$bindir":$PATH
+
 exec "$@"

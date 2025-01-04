@@ -11,6 +11,7 @@ libvte-2.91-0
 meson
 ninja-build
 qemu-system-x86
+qemu-system-mips
 ca-certificates
 wget
 gnupg
